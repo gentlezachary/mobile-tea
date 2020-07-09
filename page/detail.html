@@ -32,46 +32,62 @@
 
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="fa fa-file-archive-o icon"></i>项目名称：<span>虞天汇房估（2020）WWJ字</span></div>
-            <div class="layui-card-header"><i class="fa fa-address-book icon"></i>总户数：<span>100</span></div>
+            <div class="layui-card-header"><i class="fa fa-file-archive-o icon"></i> 项目名称：<span>虞天汇房估（2020）WWJ字</span></div>
+            <div class="layui-card-header"><i class="fa fa-address-book icon"></i> 总户数：<span>100</span></div>
 
         </div>
+        <div class="layui-tab" lay-filter="test">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="fa fa-line-chart icon"></i> 每日签约</li>
+                <li><i class="fa fa-line-chart icon"></i> 签约进度</li>
+                <li><i class="fa fa-line-chart icon"></i> 小组进度</li>
 
-        <div class="layui-card" id="daily-sign">
-            <div class="layui-card-header"><i class="fa fa-line-chart icon"></i>每日签约</div>
-            <div class="layui-card-body">
-                <div id="echarts-records" style="width: 100%;min-height:500px"></div>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-card" id="daily-sign">
+                        <div class="layui-card-body">
+                            <div id="echarts-records" style="width: 100%;min-height:500px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item ">
+                    <div class="layui-card" id="sign-progress">
+                        <div class="layui-card-body">
+                            <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item ">
+                    <div class="layui-card" id="group-progress">
+                        <div class="layui-card-body">
+                            <div id="echarts-dataset" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <div class="layui-card" id="sign-progress">
-            <div class="layui-card-header"><i class="fa fa-line-chart icon"></i>签约进度</div>
-            <div class="layui-card-body">
-                <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
-            </div>
-        </div>
 
-        <div class="layui-card" id="group-progress">
-            <div class="layui-card-header"><i class="fa fa-line-chart icon"></i>小组进度</div>
-            <div class="layui-card-body">
-                <div id="echarts-dataset" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
-            </div>
-        </div>
+
+
+
+
 
     </div>
 
     <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script src="../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
     <script>
-        layui.use(['layer', 'echarts'], function() {
+        layui.use(['layer', 'echarts', 'element'], function() {
             var $ = layui.jquery,
                 layer = layui.layer,
-                echarts = layui.echarts;
+                echarts = layui.echarts,
+                element = layui.element;
 
-            $(".chart-btn").click(function() {
-                var chart = $(this).data("chart");
-                console.log(chart);
-            })
+
+
 
             /**
              * 报表功能
@@ -209,6 +225,12 @@
 
             echartsDataset.setOption(optionDataset);
 
+
+            element.on('tab(test)', function(data) {
+                echartsPies.resize();
+                echartsDataset.resize();
+
+            });
         });
     </script>
 </body>
