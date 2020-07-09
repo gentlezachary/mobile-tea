@@ -141,6 +141,8 @@
             // echarts 窗口缩放自适应
             window.onresize = function() {
                 echartsRecords.resize();
+                echartsPies.resize();
+                echartsDataset.resize();
             }
 
 
@@ -229,6 +231,7 @@
             element.on('tab(test)', function(data) {
                 echartsPies.resize();
                 echartsDataset.resize();
+                echartsRecords.resize();
 
             });
         });
