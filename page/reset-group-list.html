@@ -27,7 +27,12 @@
 
 
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+        <script type="text/html" id="currentTableBar">
+            <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs" layuimini-content-href="reset-list.html" data-title="单户详情">详情</a>
 
+
+            <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
+        </script>
 
 
     </div>
@@ -51,10 +56,6 @@
             }],
             cols: [
                 [{
-                    field: 'id',
-                    minWidth: 50,
-                    title: '户号'
-                }, {
                     field: 'name',
                     minWidth: 50,
                     title: '姓名'
@@ -66,7 +67,12 @@
                     field: 'type',
                     minWidth: 50,
                     title: '安置类型'
-                }, ]
+                }, {
+                    title: '操作',
+                    minWidth: 100,
+                    toolbar: '#currentTableBar',
+                    align: "center"
+                }]
             ],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
@@ -82,14 +88,14 @@
             });
 
             //执行搜索重载
-            table.reload('currentTableId', {
-                page: {
-                    curr: 1
-                },
-                where: {
-                    searchParams: result
-                }
-            }, 'data');
+            // table.reload('currentTableId', {
+            //     page: {
+            //         curr: 1
+            //     },
+            //     where: {
+            //         searchParams: result
+            //     }
+            // }, 'data');
 
             return false;
         });
