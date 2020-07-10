@@ -1,18 +1,31 @@
-<!-- 首页content -->
 <div class="layuimini-container layuimini-page-anim">
     <div class="layuimini-main">
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名</label></label>
+                            </label>
+                            <div class="layui-input-inline">
 
+                                <input type="text" name="username" autocomplete="off" class="layui-input"> <br>
+                                <button type="submit" class="layui-btn layui-btn-primary" lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </fieldset>
 
 
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 
-        <script type="text/html" id="currentTableBar">
-            <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs" layuimini-content-href="project-detail.html" data-title="项目详情">查看</a>
-            <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs" layuimini-content-href="reset-group-list.html" data-title="小组详情">小组</a>
-            <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs" layuimini-content-href="reset-list.html" data-title="单户详情">单户</a>
 
-            <!-- <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a> -->
-        </script>
 
     </div>
 </div>
@@ -26,7 +39,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../api/table.json',
+            url: '../api/reset-table.json',
             // toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -35,15 +48,22 @@
             }],
             cols: [
                 [{
-                    field: 'name',
-                    minWidth: 180,
-                    title: '项目名称'
+                    field: 'id',
+                    minWidth: 50,
+                    title: '户号'
                 }, {
-                    title: '操作',
-                    minWidth: 100,
-                    toolbar: '#currentTableBar',
-                    align: "center"
-                }]
+                    field: 'name',
+                    minWidth: 50,
+                    title: '姓名'
+                }, {
+                    field: 'date',
+                    minWidth: 50,
+                    title: '签约日期'
+                }, {
+                    field: 'type',
+                    minWidth: 50,
+                    title: '安置类型'
+                }, ]
             ],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
@@ -54,9 +74,9 @@
         // 监听搜索操作
         form.on('submit(data-search-btn)', function(data) {
             var result = JSON.stringify(data.field);
-            // layer.alert(result, {
-            //     title: '最终的搜索信息'
-            // });
+            layer.alert(result, {
+                title: '最终的搜索信息'
+            });
 
             //执行搜索重载
             table.reload('currentTableId', {
