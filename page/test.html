@@ -2,52 +2,51 @@
     <div class="layuimini-main">
 
 
-        <div class="layui-col-md12">
-            <div class="layui-card">
-                <div class="layui-card-header"><i class="fa fa-file-archive-o icon"></i> 项目名称：<span>虞天汇房估（2020）WWJ字</span></div>
-                <div class="layui-card-header"><i class="fa fa-address-book icon"></i> 总户数：<span>100</span></div>
-
-            </div>
-            <div class="layui-tab" lay-filter="test">
-                <ul class="layui-tab-title">
-                    <li class="layui-this"><i class="fa fa-line-chart icon"></i> 每日签约</li>
-                    <li><i class="fa fa-line-chart icon"></i> 签约进度</li>
-                    <li><i class="fa fa-line-chart icon"></i> 小组进度</li>
-
-                </ul>
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
-                        <div class="layui-card" id="daily-sign">
-                            <div class="layui-card-body">
-                                <div id="echarts-records" style="width: 100%;min-height:500px"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item ">
-                        <div class="layui-card" id="sign-progress">
-                            <div class="layui-card-body">
-                                <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item ">
-                        <div class="layui-card" id="group-progress">
-                            <div class="layui-card-body">
-                                <div id="echarts-dataset" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-
-
-
+        <div class="layui-card">
+            <div class="layui-card-header"><i class="fa fa-file-archive-o icon"></i> 项目名称：<span>虞天汇房估（2020）WWJ字</span></div>
+            <div class="layui-card-header"><i class="fa fa-address-book icon"></i> 总户数：<span>100</span></div>
 
         </div>
+        <div class="layui-tab" lay-filter="test">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="fa fa-line-chart icon"></i> 每日签约</li>
+                <li><i class="fa fa-line-chart icon"></i> 签约进度</li>
+                <li><i class="fa fa-line-chart icon"></i> 小组进度</li>
+
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-card" id="daily-sign">
+                        <div class="layui-card-body">
+                            <div id="echarts-records" style="width: 100%;min-height:400px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item ">
+                    <div class="layui-card" id="sign-progress">
+                        <div class="layui-card-body">
+                            <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item ">
+                    <div class="layui-card" id="group-progress">
+                        <div class="layui-card-body">
+                            <div id="echarts-dataset" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
 
 
         <script>
@@ -110,11 +109,11 @@
                 echartsRecords.setOption(optionRecords);
 
                 // echarts 窗口缩放自适应
-                window.onresize = function() {
-                    echartsRecords.resize();
-                    echartsPies.resize();
-                    echartsDataset.resize();
-                }
+                // window.onresize = function() {
+                //     echartsRecords.resize();
+                //     echartsPies.resize();
+                //     echartsDataset.resize();
+                // }
 
 
                 /**
