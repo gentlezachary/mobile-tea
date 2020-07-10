@@ -20,6 +20,7 @@
                         <button type="submit" class="layui-btn layui-btn-primary" lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
 
                     </div>
+
                 </form>
             </div>
         </fieldset>
@@ -38,7 +39,7 @@
             form = layui.form,
             table = layui.table,
             miniPage = layui.miniPage;
-
+        form.render('select');
         table.render({
             elem: '#currentTableId',
             url: '../api/reset-group-table.json',
